@@ -1,0 +1,59 @@
+@baseUrl = http://127.0.0.1:8080
+
+# создание пользователя
+POST {{baseUrl}}/user
+Content-Type: application/json
+
+{
+  "name": "name",
+  "email": "email3@email.ru",
+  "password": "password"
+}
+
+###
+
+# логин
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "id": 1,
+  "password": "password"
+}
+
+###
+
+# создание объявления
+POST {{baseUrl}}/ads
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1fQ.hpa8JvoRVO-L46sYgMHq8Uzqrjlxo2-0wJ8tjB0gBvU
+Content-Type: application/json
+
+{
+    "title": "Название",
+    "description": "Какой-то текст"
+}
+
+###
+
+# получение объявления
+GET {{baseUrl}}/ads/1
+Content-Type: application/json
+
+###
+
+# изменение объявления
+
+PATCH {{baseUrl}}/ads/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1fQ.hpa8JvoRVO-L46sYgMHq8Uzqrjlxo2-0wJ8tjB0gBvU
+Content-Type: application/json
+
+{
+    "title": "Название вариант 2",
+    "description": "Какой-то новый текст"
+}
+
+###
+
+# удаление объявления
+DELETE {{baseUrl}}/ads/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjo1fQ.hpa8JvoRVO-L46sYgMHq8Uzqrjlxo2-0wJ8tjB0gBvU
